@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  api:
+    image: ruby
+    build:
+      context: .
+      dockerfile: ./.docker/development.dockerfile
+    expose:
+      - 4567
+    ports:
+      - "4567:4567"
+    volumes:
+      - ./app:/usr/dentico/app
+    networks:
+      - dentico-api
+
+networks:
+  dentico-api:
